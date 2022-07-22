@@ -5,6 +5,7 @@ import ItemListContainer from "./container/ItemListContainer";
 import NotFound from './views/NotFound';
 import { useState } from 'react';
 import Layout from './views/Layout';
+import Cart from './views/Cart';
 
 function App() {
   const [cambio, setcambio] = useState('light')
@@ -29,6 +30,7 @@ function App() {
               <Route index element={<ItemListContainer />}/>
               <Route path='category/:id' element={<ItemListContainer />}/>
               <Route path='item/:id' element={<ItemDetailContainer />}/>
+              <Route path='cart' element={<Cart />}/>
               <Route path='*' element={<NotFound />}/>
             </Route> 
           </Routes>

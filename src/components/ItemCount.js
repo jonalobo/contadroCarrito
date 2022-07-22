@@ -1,30 +1,39 @@
-import { useState } from 'react'
-import '../css/ItemCount.css'
-const ItemCount = ({stock, initial}) => {
+import { useState } from "react";
+import "../css/carrito.css";
+const Carrito = ({ stock, initial, onAdd }) => {
+  const [count, setCount] = useState(initial);
 
-  /* Código */
-  const [count, setCount] = useState(Number(initial))
-
-  const onAdd = ()=>{
+  function mas() {
     if (count < stock) {
-      console.log('Bucle')
-      setCount(count + 1)
+      setCount(count + 1);
     }
   }
-  const restar = ()=>{
-    if (count > 0) {
-      setCount(count - 1)
+  function menos() {
+    if (count > initial) {
+      setCount(count - 1);
     }
   }
-
   return (
-    <div className="contenedorItemCount">
-      <div className='contador'>{count}</div>
-      <div className='botones'>
-        <button className="btn btn-primary" onClick={onAdd}>+</button>
-        <button className="btn btn-secondary" onClick={restar}>-</button>
+    <div className="conteneda">
+      <div className="carrito">
+        <div className="btnmenos">
+          <button className="btn btn-ghost" onClick={menos}>
+            -
+          </button>
+        </div>
+        <div className="monto">{count}</div>
+        <div className="btnmas">
+          <button className="btn btn-ghost" onClick={mas}>
+            +
+          </button>
+        </div>
+      </div>
+      <div className="btnAgregar">
+        <button className="btn btn-primary agregar" onClick={onAdd} >
+          Agregar
+        </button>
       </div>
     </div>
-  )
-}
-export default ItemCount
+  );
+};
+export default Carrito;
